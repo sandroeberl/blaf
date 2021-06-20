@@ -8,23 +8,33 @@ Starting point - https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4
 </script>
 <body style='margin : 0px; overflow: hidden;'>
 
-<a-scene id="scene" embedded arjs='sourceType: webcam;'>
+<a-scene id="scene" embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+
   <!--<a-sky></a-sky>-->
   <!--example here is helpful https://github.com/ngokevin/kframe/blob/master/components/aabb-collider/examples/basic/index.html-->
-  <a-marker preset='hiro' id="hiro">
-    <A-sphere id = "hiro-object" position='0 1 0' color="blue"  material='opacity: 1; metalness: .5' radius="1" aabb-collider="objects: #kanji-object"
+  <a-marker type='barcode' value='1'>
+    <a-image position="0 0 0"
+             scale="1 1 1" rotation="-90 0 0" src="./hydrogen.png" id = "hiro-object" material='opacity: 1; metalness: .5' radius="1" aabb-collider="objects: #kanji-object"
               event-set__hitstart="material.color: yellow"
               event-set__hitend="material.color: blue"
               event-set__otherstart="_event: hitstart; _target: #kanji-object; material.color: green; "
               event-set__otherend="_event: hitend; _target: #kanji-object; material.color: pink;">
 
-    </A-sphere>
+    </a-image>
   </a-marker>
 
-  <a-marker preset='kanji' id="kanji">
-    <a-sphere id="kanji-object" color="pink" radius="1" position="0 .25 0" aabb-collider="objects: #hiro-object">
+  <a-marker type='barcode' value='2'>
+    <a-image position="0 0 0"
+              scale="1 1 1" rotation="-90 0 0" src="./hydrogen.png" id="kanji-object" aabb-collider="objects: #hiro-object">
 
-    </a-sphere>
+    </a-image>
+  </a-marker>
+
+  <a-marker type='barcode' value='3'>
+    <a-image position="0 0 0"
+             scale="1 1 1" rotation="-90 0 0" src="./oxygen.png" id="kanji-object" aabb-collider="objects: #hiro-object">
+
+    </a-image>
   </a-marker>
 
   <a-entity camera></a-entity>
