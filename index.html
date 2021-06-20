@@ -16,17 +16,15 @@ Starting point - https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4
               event-set__hitstart="material.color: yellow"
               event-set__hitend="material.color: blue"
               event-set__otherstart="_event: hitstart; _target: #kanji-object; material.color: green; "
-              event-set__otherend="_event: hitend; _target: #kanji-object; material.color: pink;"
+              event-set__otherend="_event: hitend; _target: #kanji-object; material.color: pink;">
 
-    ></A-sphere><!--above shows that you can affect another element--><!--event-set__skystart="_event: hitstart; _target: sky; material.color: green"
-								event-set__skyend="_event: hitend; _target: sky; material.opacity: 0"-->
-    <!-- adding a src on collision, the src is there from the beginning-->
-    <!-- the material color changes when the entity hits the edge of the widnow-->
+    </A-sphere>
   </a-marker>
 
   <a-marker preset='kanji' id="kanji">
-    <a-sphere id="kanji-object" color="pink" radius="1" position="0 .25 0" aabb-collider="objects: #hiro-object"
-    ></a-sphere>
+    <a-sphere id="kanji-object" color="pink" radius="1" position="0 .25 0" aabb-collider="objects: #hiro-object">
+
+    </a-sphere>
   </a-marker>
 
   <a-entity camera></a-entity>
